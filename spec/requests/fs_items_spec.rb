@@ -1,9 +1,17 @@
 describe "FSItems API" do
-  it 'returns a list of all fs_items' do
-    FactoryGirl.create_list(:fs_item, 10)
+  it 'returns a list of all fs_items with no parent' do
+    unused_parent_directory = FactoryGirl.create(:fs_item)
+
+    # These are unwanted items, as they have a parent
+    FactoryGirl.create_list(:fs_item, 5, fs_item: unused_parent_directory)
+
+    # We want to see that only these without a top level parent return
+    FactoryGirl.create_list(:fs_item, 9)
     get '/fs_items'
     expect(response).to be_success
     json = JSON.parse(response.body)
+
+    # Response would have 15 items if all were returned
     expect(json['fs_items'].length).to eq(10)
   end
 
