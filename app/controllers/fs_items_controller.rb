@@ -1,6 +1,6 @@
 class FsItemsController < ApplicationController
   def index
-    @fs_items = FsItem.all
+    @fs_items = FsItem.all_or_nested(params[:fs_item])
     render json: @fs_items, root: 'fs_items'
   end
 
