@@ -6,4 +6,12 @@ describe "FSItems API" do
     json = JSON.parse(response.body)
     expect(json['fs_items'].length).to eq(10)
   end
+
+  it 'retrieves a fs_item' do
+    fs_item = FactoryGirl.create(:fs_item)
+    get "/fs_items/#{fs_item.id}"
+    expect(response).to be_success
+    json = JSON.parse(response.body)
+    expect(json['name']).to eq(fs_item.name)
+  end
 end

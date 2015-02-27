@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :fs_items, only: [:index]
+  resources :fs_items, only: [:index, :show]
 end
