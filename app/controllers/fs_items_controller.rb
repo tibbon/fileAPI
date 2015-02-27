@@ -37,6 +37,6 @@ class FsItemsController < ApplicationController
   end
 
   def fs_item_params
-    params.require(:fs_item).permit(:name, :fs_item_id)
+    params.require(:fs_item).permit(:name, :fs_item_id, :kind)
   end
 end
