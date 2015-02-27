@@ -5,7 +5,7 @@ gem 'rails-api'
 gem 'spring', group: :development
 gem 'pg'
 gem 'newrelic_rpm'
-gem 'rack-cors', require: 'rack/cors'
+gem 'rack-cors' #, require: 'rack/cors'
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 gem 'nokogiri'
 group :development, :test do

@@ -14,7 +14,7 @@ FsItem.create(name: 'Smells Like Teen Spirit', kind: :file, fs_item: music)
 FsItem.create(name: 'Thriller', kind: :file, fs_item: music)
 FsItem.create(name: 'Born in the USA', kind: :file, fs_item: music)
 
-techno = FsItem.create(name: 'techno', kind: :directory)
+techno = FsItem.create(name: 'techno', kind: :directory, fs_item: music)
 FsItem.create(name: 'Breathe', kind: :file, fs_item: techno)
 FsItem.create(name: 'Dance Dance', kind: :file, fs_item: techno)
 FsItem.create(name: 'Boom Shake Dance', kind: :file, fs_item: techno)

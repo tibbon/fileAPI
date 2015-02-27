@@ -26,7 +26,7 @@ class FsItemsController < ApplicationController
   end
 
   def create
-    fs_item = FsItem.new(fs_item_params)
+    fs_item = FsItem.create(fs_item_params)
     # I should check the integrity here, but I'm currently not
     render json: fs_item
   end
