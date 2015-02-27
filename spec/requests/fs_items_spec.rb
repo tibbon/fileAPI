@@ -40,6 +40,15 @@ describe "FSItems API" do
     expect(response).to be_success
   end
 
+  it 'creates a new fs_item, which could be used to copy files' do
+    parent = FactoryGirl.create(:fs_item)
+    fs_item = FactoryGirl.create(:fs_item, fs_item: parent)
+    post '/fs_items', fs_item: {name: fs_item.name, fs_item: parent.id }
+    expect(response).to be_success
+    json = JSON.parse(response.body)
+    expect(json['name']).to eq fs_item.name
+  end
+
   it 'updates an fs_item by id' do
     old_directory = FactoryGirl.create(:fs_item)
     new_directory = FactoryGirl.create(:fs_item)

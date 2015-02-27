@@ -19,4 +19,8 @@ RSpec.describe "routes for FsItems", type: :routing do
     fs_item = FactoryGirl.create(:fs_item)
     expect(put("/fs_items/#{fs_item.id}")).to route_to('fs_items#update', id: fs_item.id.to_s)
   end
+
+  it 'routes POST /fs_items to fs_items#create' do
+    expect(post('/fs_items')).to route_to('fs_items#create')
+  end
 end

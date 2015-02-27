@@ -21,9 +21,15 @@ class FsItemsController < ApplicationController
     render json: @fs_item
   end
 
+  def create
+    fs_item = FsItem.new(fs_item_params)
+
+    # I should check the integrity here, but I'm currently not
+    render json: fs_item
+  end
+
   private
   def fs_item_params
-    # currently not allowing renaming of files, just moving them
-    params.require(:fs_item).permit(:fs_item_id)
+    params.require(:fs_item).permit(:name, :fs_item_id)
   end
 end
