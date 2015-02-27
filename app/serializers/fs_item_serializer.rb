@@ -1,3 +1,3 @@
 class FsItemSerializer < ActiveModel::Serializer
-  attributes :name, :fs_item
+  attributes :id, :name, :fs_item
 end
