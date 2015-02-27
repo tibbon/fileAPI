@@ -1,6 +1,11 @@
 class FsItemsController < ApplicationController
   before_action :set_fs_item, only: [:destroy, :update, :show]
 
+  def all_directories
+    @all_directories = FsItem.directory
+    render json: @all_directories, root: 'fs_items'
+  end
+
   def index
     @fs_items = FsItem.top_level_or_nested(params[:fs_item])
     render json: @fs_items, root: 'fs_items'

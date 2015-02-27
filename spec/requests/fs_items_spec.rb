@@ -1,4 +1,12 @@
 describe "FSItems API" do
+  it 'returns a list of all directories' do
+    FactoryGirl.create_list(:fs_item, 3, kind: :directory)
+    get '/fs_items/all_directories'
+    expect(response).to be_success
+    json = JSON.parse(response.body)
+    expect(json['fs_items'].length).to eq 3
+  end
+
   it 'returns a list of all fs_items with no parent' do
     unused_parent_directory = FactoryGirl.create(:fs_item)
 
@@ -12,7 +20,7 @@ describe "FSItems API" do
     json = JSON.parse(response.body)
 
     # Response would have 15 items if all were returned
-    expect(json['fs_items'].length).to eq(10)
+    expect(json['fs_items'].length).to eq 10
   end
 
   it 'returns a list of all fs_items with the same parent' do

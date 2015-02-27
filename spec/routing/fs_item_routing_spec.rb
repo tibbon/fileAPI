@@ -23,4 +23,8 @@ RSpec.describe "routes for FsItems", type: :routing do
   it 'routes POST /fs_items to fs_items#create' do
     expect(post('/fs_items')).to route_to('fs_items#create')
   end
+
+  it 'routes /fs_items/all_directories to fs_items#all_directories' do
+    expect(get('/fs_items/all_directories')).to route_to('fs_items#all_directories')
+  end
 end
