@@ -8,4 +8,9 @@ class FsItemsController < ApplicationController
     @fs_item = FsItem.find(params[:id])
     render json: @fs_item
   end
+
+  def destroy
+    @fs_item = FsItem.find(params[:id]).delete
+    render json: {}, status: :no_content
+  end
 end

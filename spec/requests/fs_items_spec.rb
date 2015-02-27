@@ -14,4 +14,10 @@ describe "FSItems API" do
     json = JSON.parse(response.body)
     expect(json['name']).to eq(fs_item.name)
   end
+
+  it 'deletes an fs_item by id' do
+    fs_item = FactoryGirl.create(:fs_item)
+    delete "/fs_items/#{fs_item.id}"
+    expect(response).to be_success
+  end
 end
