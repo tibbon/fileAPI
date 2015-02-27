@@ -5,7 +5,8 @@ This is a file API for a coding challenge.
 
 ## API Endpoints
 
-- `GET /fs_items` Returns JSON of top level files
+- `GET /fs_items` Returns JSON of top level files. If you pass a fs_item= query string, it will return files nested under that id.
+
 - `GET /fs_items/:id` Returns JSON of a specific file by integer ID
 - `PUT /fs_items/:id` Updates information (name, parent_id) for a given file
 - `POST /fs_items` Creates a new file system item
