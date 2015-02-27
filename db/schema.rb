@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227162958) do
+ActiveRecord::Schema.define(version: 20150227200352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 20150227162958) do
   create_table "fs_items", force: :cascade do |t|
     t.string   "name"
     t.integer  "fs_item_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "kind",       default: 0, null: false
   end
 
   add_index "fs_items", ["fs_item_id"], name: "index_fs_items_on_fs_item_id", using: :btree
