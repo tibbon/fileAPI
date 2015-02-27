@@ -1,0 +1,10 @@
+class CreateFsItems < ActiveRecord::Migration
+  def change
+    create_table :fs_items do |t|
+      t.string :name
+      t.belongs_to :fs_item, index: true
+
+      t.timestamps null: false
+    end
+  end
+end
