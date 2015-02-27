@@ -5,14 +5,18 @@ RSpec.describe "routes for FsItems", type: :routing do
     expect(get("/fs_items")).to route_to("fs_items#index")
   end
 
-  it 'routes GET /fs_items/:1 to the fs_items#show' do
+  it 'routes GET /fs_items/:id to the fs_items#show' do
     fs_item = FactoryGirl.create(:fs_item)
     expect(get("/fs_items/#{fs_item.id}")).to route_to('fs_items#show', id: fs_item.id.to_s)
   end
 
-  it 'routes DELETE /fs_items/:1 to the fs_items#destroy' do
+  it 'routes DELETE /fs_items/:id to the fs_items#destroy' do
     fs_item = FactoryGirl.create(:fs_item)
     expect(delete("/fs_items/#{fs_item.id}")).to route_to('fs_items#destroy', id: fs_item.id.to_s)
+  end
 
+  it 'routes PUT /fs_items/:id to fs_items#update' do
+    fs_item = FactoryGirl.create(:fs_item)
+    expect(put("/fs_items/#{fs_item.id}")).to route_to('fs_items#update', id: fs_item.id.to_s)
   end
 end

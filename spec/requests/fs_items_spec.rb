@@ -39,4 +39,14 @@ describe "FSItems API" do
     delete "/fs_items/#{fs_item.id}"
     expect(response).to be_success
   end
+
+  it 'updates an fs_item by id' do
+    old_directory = FactoryGirl.create(:fs_item)
+    new_directory = FactoryGirl.create(:fs_item)
+    fs_item = FactoryGirl.create(:fs_item, fs_item: old_directory)
+    put "/fs_items/#{fs_item.id}", fs_item: {fs_item_id: new_directory.id}
+    expect(response).to be_success
+    json = JSON.parse(response.body)
+    expect(json['fs_item']['id']).to be new_directory.id
+  end
 end
