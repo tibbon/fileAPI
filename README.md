@@ -1,39 +1,14 @@
-![General Assembly Logo](http://i.imgur.com/ke8USTq.png)
+# Rails File API
 
-# Assignment Name (Ruby String Lab)
+This is a file API for a coding challenge.
 
-## Objectives
 
-By the end of this, students should be able to:
+## API Endpoints
 
-- Objective 1
-- Objective 2
-- Objective 3
+- `GET /fsitems` Returns JSON of top level files
+- `GET /fsitems/:id` Returns JSON of a specific file by integer ID
+- `PUT /fsitems/:id` Updates information (name, parent_id) for a given file
+- `POST /fsitems` Creates a new file system item
+- `DELETE /fsitems/:id` Deletes a file system item
 
-## Instructions
-
-Include explict step-by-step instructions about the goals of the assignment, and how to run the code.
-
-Make sure to wrap section of code in appropriate markdown like `ls -al`, and denote the language as below for longer sections:
-
-```ruby
-x = 2
-y = 3
-puts x + y
-```
-
-## Bonus (Optional Section)
-
-If you're looking for extra challenge or practice once you've completed the above, try to...
-
-## Notes
-
-Gotcha's and extra information
-
-## Additional Resources
-
-List additional related resources such as videos, blog posts and official documentation.
-
-- Item 1
-- Item 2
-- Item 3
+Files and directories are very similar, except in that file system items can refer to directories as their parent container, and if the size property is implemented for files it will refer to a binary blog size and for a directory it will be the sum size of sub items (require caching for performance).
